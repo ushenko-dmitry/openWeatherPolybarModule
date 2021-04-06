@@ -1,5 +1,20 @@
 [Global]
 
 city=Minsk
+
+# For temperature in Fahrenheit use: units=imperial
+# For temperature in Celsius use:    units=metric
+# For temperature in Kelvin use:     units=standard
 units=metric
+
+# en English
+# fr French
+# de German
+# it Italian
+# ja Japanese
+# pl Polish
+# ru Russian
 lang=ru
+
+# digits after comma (0, 1, 2)
+round=0
