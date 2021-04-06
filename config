@@ -20,6 +20,7 @@ lang=ru
 round=0
 
 # D - description
+# I - icon
 # T - main temperature
 # F - feels like temperature
 # n - temperature min

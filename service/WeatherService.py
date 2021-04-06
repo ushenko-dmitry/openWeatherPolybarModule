@@ -32,6 +32,7 @@ class WeatherService:
 
     def printWeather (self, weather, parameter):
         keySet = {}
+        keySet["I"] = self.getKeySetWithIcons().get(weather.weather.icon)
         keySet["D"] = weather.weather.description
         if parameter.round > 0:
             keySet["T"] = round(weather.main.temp, parameter.round)
@@ -53,4 +54,27 @@ class WeatherService:
             else:
                 print (ch, end='')
         print ()
-    
+
+    def getKeySetWithIcons (self):
+        keySet = {}
+        keySet["01d"] = ""
+        keySet["02d"] = ""
+        keySet["03d"] = ""
+        keySet["04d"] = ""
+        keySet["09d"] = ""
+        keySet["10d"] = ""
+        keySet["11d"] = ""
+        keySet["13d"] = ""
+        keySet["50d"] = ""
+
+        keySet["01n"] = ""
+        keySet["02n"] = ""
+        keySet["03n"] = ""
+        keySet["04n"] = ""
+        keySet["09n"] = ""
+        keySet["10n"] = ""
+        keySet["11n"] = ""
+        keySet["13n"] = ""
+        keySet["50n"] = ""
+        return keySet
+
