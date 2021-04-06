@@ -27,14 +27,30 @@ class WeatherService:
         parameter.units = config["Global"]["units"]
         parameter.city = config["Global"]["city"]
         parameter.round = int(config["Global"]["round"])
+        parameter.output = config["Global"]["output"]
         return parameter
 
     def printWeather (self, weather, parameter):
-        print (weather.weather.description, end=' ')
+        keySet = {}
+        keySet["D"] = weather.weather.description
         if parameter.round > 0:
-            print (round(weather.main.temp, parameter.round), end=' ')
-            print ("(" + str(round(weather.main.feelsLike, parameter.round)) + ")", end=' ')
+            keySet["T"] = round(weather.main.temp, parameter.round)
+            keySet["F"] = round(weather.main.feelsLike, parameter.round)
+            keySet["n"] = round(weather.main.tempMin, parameter.round)
+            keySet["x"] = round(weather.main.tempMax, parameter.round)
         else:
-            print (round(weather.main.temp), end=' ')
-            print ("(" + str(round(weather.main.feelsLike)) + ")", end=' ')
+            keySet["T"] = round(weather.main.temp)
+            keySet["F"] = round(weather.main.feelsLike)
+            keySet["n"] = round(weather.main.tempMin)
+            keySet["x"] = round(weather.main.tempMax)
+        keySet["P"] = weather.main.pressure
+        keySet["H"] = weather.main.humidity
+        keySet["C"] = weather.name
+
+        for ch in parameter.output:
+            if keySet.get(ch) is not None:
+                print (keySet.get(ch), end='')
+            else:
+                print (ch, end='')
         print ()
+    

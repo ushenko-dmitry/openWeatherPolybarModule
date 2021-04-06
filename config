@@ -18,3 +18,13 @@ lang=ru
 
 # digits after comma (0, 1, 2)
 round=0
+
+# D - description
+# T - main temperature
+# F - feels like temperature
+# n - temperature min
+# x - temperature max
+# P - pressure
+# H - humidity
+# C - city name
+output=D T (F)

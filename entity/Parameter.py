@@ -3,4 +3,5 @@ class Parameter():
     units = ""
     city = ""
     round = 0
+    output = "T"
 
